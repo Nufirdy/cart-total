@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @ToString
 public class Product {
 
-    private int id;
+    private Integer id;
 
     private BigDecimal price;
 }

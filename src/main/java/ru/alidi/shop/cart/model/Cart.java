@@ -15,5 +15,5 @@ public class Cart {
 
     private String paymentType;
 
-    private int addressId;
+    private Integer addressId;
 }

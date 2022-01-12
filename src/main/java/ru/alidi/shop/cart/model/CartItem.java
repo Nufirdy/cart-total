@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class CartItem {
 
-    private int id;
+    private Integer id;
 
-    private int quantity;
+    private Integer quantity;
 }
