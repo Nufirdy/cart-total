@@ -26,6 +26,6 @@ public class CacheConfig {
                     public Product load(Integer key) throws Exception {
                         return productServiceClient.getProductById(key);
                     }
-                })
+                });
     }
 }
