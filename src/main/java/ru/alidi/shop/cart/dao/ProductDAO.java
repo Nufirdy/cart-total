@@ -1,24 +1,23 @@
 package ru.alidi.shop.cart.dao;
 
+import com.google.common.cache.LoadingCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.alidi.shop.cart.client.ProductServiceClient;
 import ru.alidi.shop.cart.model.Product;
 
-/**
- * Класс для получения данных о продукте. Использует кэш.
- */
+import java.util.concurrent.ExecutionException;
+
 @Component
 public class ProductDAO {
 
-    private final ProductServiceClient productServiceClient;
+    private final LoadingCache<Integer, Product> guavaCache;
 
     @Autowired
-    public ProductDAO(ProductServiceClient productServiceClient) {
-        this.productServiceClient = productServiceClient;
+    public ProductDAO(LoadingCache<Integer, Product> guavaCache) {
+        this.guavaCache = guavaCache;
     }
 
-    public Product getProductById(Integer id) {
-        return null;
+    public Product getProductById(Integer id) throws ExecutionException {
+        return guavaCache.get(id);
     }
 }
