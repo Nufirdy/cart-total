@@ -12,4 +12,8 @@ import java.util.List;
 public class Cart {
 
     private List<CartItem> products;
+
+    private String paymentType;
+
+    private int addressId;
 }
