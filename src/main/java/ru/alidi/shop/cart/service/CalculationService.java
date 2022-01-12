@@ -15,7 +15,7 @@ public class CalculationService {
         this.productDAO = productDAO;
     }
 
-    public CalculatedCart calculateCartTotal(Cart cart, String paymentType, Integer addressId) {
+    public CalculatedCart calculateCartTotal(Cart cart) {
         /*
         собрать данные по ценам продуктов
         сложить все цены
