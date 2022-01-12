@@ -5,10 +5,14 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString
 public class CalculatedCart extends Cart {
 
+    private BigDecimal total;
+    //возможная доп информация о посчитанной корзине
 }

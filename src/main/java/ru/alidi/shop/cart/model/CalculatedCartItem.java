@@ -1,6 +1,11 @@
 package ru.alidi.shop.cart.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
+
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @Getter
@@ -8,5 +13,5 @@ import lombok.*;
 @ToString
 public class CalculatedCartItem extends CartItem {
 
-    private float sum;
+    private BigDecimal subtotal;
 }

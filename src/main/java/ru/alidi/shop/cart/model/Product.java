@@ -1,9 +1,17 @@
 package ru.alidi.shop.cart.model;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+import java.math.BigDecimal;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@EqualsAndHashCode
+@ToString
 public class Product {
 
     private int id;
+
+    private BigDecimal price;
 }
