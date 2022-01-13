@@ -9,6 +9,8 @@ import ru.alidi.shop.cart.model.CalculatedCart;
 import ru.alidi.shop.cart.model.Cart;
 import ru.alidi.shop.cart.service.CalculationService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/")
 public class CartController implements CartManager {
@@ -22,7 +24,7 @@ public class CartController implements CartManager {
 
     @Override
     @PostMapping("total")
-    public CalculatedCart getCartTotal(@RequestBody Cart cart) {
+    public CalculatedCart getCartTotal(@RequestBody @Valid Cart cart) {
         return calculationService.calculateCartTotal(cart);
     }
 }

@@ -5,13 +5,18 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode
 @ToString
-public class CalculatedCart extends Cart {
+public class CalculatedCart {
+
+    @NotEmpty
+    private List<CalculatedCartItem> products;
 
     private BigDecimal total;
     //возможная доп информация о посчитанной корзине
