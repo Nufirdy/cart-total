@@ -3,9 +3,8 @@ package ru.alidi.shop.cart.model;
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
-@EqualsAndHashCode()
+@EqualsAndHashCode
 @ToString
 public class CartItem {
 
