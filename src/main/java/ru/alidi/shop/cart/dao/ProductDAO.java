@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import ru.alidi.shop.cart.model.Product;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
 @Component
@@ -18,13 +19,12 @@ public class ProductDAO {
         this.guavaCache = guavaCache;
     }
 
-    public Product getProductById(Integer id) {
-        Product product = null;
+    public Optional<Product> getProductById(Integer id) {
         try {
-            product = guavaCache.get(id);
-        } catch (ExecutionException e) {
-            //предпочитаемый в системе способ обработки ошибок
+            return Optional.of(guavaCache.get(id));
+        } catch (Exception e) {//обработка Exception для охвата как проверяемых так и непроверяемых исключений
+            e.printStackTrace();
+            return Optional.empty();
         }
-        return product;
     }
 }

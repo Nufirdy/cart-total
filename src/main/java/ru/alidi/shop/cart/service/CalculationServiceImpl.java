@@ -29,7 +29,8 @@ public class CalculationServiceImpl implements CalculationService {
     public CalculatedCart calculateCartTotal(Cart cart) {
         List<CalculatedCartItem> calculatedItems = cart.getProducts().stream()
                 .map(cartItem -> {
-                    Product product = productDAO.getProductById(cartItem.getId());
+                    Product product = productDAO.getProductById(cartItem.getId())
+                            .orElse(new Product(cartItem.getId(), BigDecimal.ZERO));//в случае не получения цены продукта, она не включается в подсчет
                     return new CalculatedCartItem(cartItem.getId(),
                             cartItem.getQuantity(),
                             calculateItemSubtotal(product.getPrice(), cartItem.getQuantity()));
